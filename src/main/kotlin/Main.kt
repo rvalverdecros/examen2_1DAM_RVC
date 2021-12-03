@@ -40,11 +40,15 @@ class Punto(var id:String){ //aqui se crea la clase Punto y dentro de ella esta 
             val norte = mutableListOf<Punto>()
             val sur = mutableListOf<Punto>()
             val filtrar = mapOf("Norte" to norte, "Sur" to sur)
-            for (i in 0..array.size){
+            for (i in 0..array.size -1){
                 if (array[i].y >= 0) {
                     norte.add(array[i])
+                    println("Norte")
+                    println(array[i])
                 } else {
                     sur.add(array[i])
+                    println("Sur")
+                    println(array[i])
                 }
             }
             return filtrar
@@ -57,5 +61,7 @@ class Punto(var id:String){ //aqui se crea la clase Punto y dentro de ella esta 
 fun main() {
     val uno=Punto("uno",3,2) //Valor del Primer Punto
     val dos=Punto("dos",1,3) //Valor del Segundo Punto
-    val tres = Punto.ComponenteDeVector(uno,dos) //Haciendo uso del método componenteDeVector devuelve un tercer punto.
+    //val tres = Punto.ComponenteDeVector(uno,dos) //Haciendo uso del método componenteDeVector devuelve un tercer punto.
+    val cuatro=Punto("cuatro",-4,-9)
+    Punto.localizacionGeograficaNS(arrayListOf(uno,dos,cuatro))
 }
